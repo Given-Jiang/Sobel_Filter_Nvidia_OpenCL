@@ -1,4 +1,4 @@
-﻿Build started 2015/4/25 18:30:31.
+﻿Build started 2015/4/27 9:04:11.
      1>Project "E:\VS2012\design\OpenCL\Sobel\Sobel\Sobel.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          E:\VS2012\VC\bin\CL.exe /c /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include" /I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v5.0\include\CL" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ..\main.cpp
@@ -11,4 +11,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.65
+Time Elapsed 00:00:07.73

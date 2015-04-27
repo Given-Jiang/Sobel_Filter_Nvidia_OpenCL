@@ -24,9 +24,9 @@ void img_init(string &str, Mat &img_buf, unsigned int &img_rows, unsigned int &i
 {
 //	img_buf.create(576, 720, CV_8UC1);
 	img_buf = imread(str);
-	GaussianBlur(img_buf, img_buf, Size(7, 7), 0, 0, BORDER_DEFAULT);
+//	GaussianBlur(img_buf, img_buf, Size(7, 7), 0, 0, BORDER_DEFAULT);
 	cvtColor(img_buf, img_buf, CV_BGR2GRAY);
-	convertScaleAbs(img_buf, img_buf);  
+//	convertScaleAbs(img_buf, img_buf);  
 //	imwrite("test_gray.jpg",img_buf);
 	img_rows = img_buf.rows;
 	img_cols = img_buf.cols;
@@ -188,6 +188,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	uchar* pixel_in = in_img.data;
 	err = clEnqueueWriteBuffer(queue, cl_img_in, CL_FALSE, 0, DATA_SIZE, pixel_in, 0, NULL, NULL);
 	clFinish(queue);
+	
+	//cout << "" << in_img << endl;
+
+/*	for ( int xx = 0; xx < 720 * 576 ; xx++)
+	{
+		printf("%d,", pixel_in[xx]);
+	}*/
 
 	//set NDRange 
 	size_t work_size = 1;
@@ -197,7 +204,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	Mat out_img(in_img_rows, in_img_cols, CV_8UC1);//must define the arguements when define the Mat
 	cout << "out_isContinue = " << out_img.isContinuous() << endl;
-	uchar* pixel_out = out_img.data;
+	uchar* pixel_out = out_img.data; 
 	if(err == CL_SUCCESS)
 	{
 		err = clEnqueueReadBuffer(queue, cl_img_out, CL_FALSE, 0, DATA_SIZE, pixel_out, 0, 0, 0);
@@ -238,7 +245,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	namedWindow("test_out");
 	imshow("test_out",out_img);
 
-	
 	waitKey(0);
 	return 0;
 
